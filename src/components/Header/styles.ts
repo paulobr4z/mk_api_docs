@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 80px;
   background-color: #000000;
+  z-index: 99;
 
   .wrapper {
     display: flex;
@@ -26,8 +27,15 @@ export const HeaderContainer = styled.header`
       color: #FFFFFF;
       font-family: 'Roboto Condensed';
 
+      a {
+        cursor: pointer;
+        color: #FFFFFF;
+        text-decoration: none;
+      }
+
       li {
         list-style-type: none;
+        font-weight: bold;
       }
     }
   }

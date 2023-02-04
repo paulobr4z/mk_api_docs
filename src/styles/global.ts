@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import MKFont from '../assets/font/Mortal-Kombat-MK11.otf'
+import '../assets/font/font.css'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -9,10 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  @font-face {
-    font-family: 'Mortal Kombat';
-    src: local('Mortal Kombat'),
-    url(${MKFont}) format('otf')
+  html {
+    scroll-behavior: smooth;
   }
 
   :focus {
@@ -31,9 +29,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
     font-size: 16px;
-  }
-
-  h1 {
-    font-family: 'Mortal Kombat', sans-serif;
+    color: #FFFFFF;
   }
 `
