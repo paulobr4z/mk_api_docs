@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     width: 100%;
     max-width: 1120px;
+    margin: 0 16px;
 
     ul {
       display: flex;
@@ -36,6 +37,56 @@ export const HeaderContainer = styled.header`
       li {
         list-style-type: none;
         font-weight: bold;
+      }
+    }
+
+    .menu-mobile {
+      display: none;
+
+      span {
+        width: 22px;
+        height: 2px;
+        background-color: #FFB902;
+        border-radius: 100px;
+
+      }
+
+      .menu-mobile-options {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 32px;
+
+        a {
+          color: #FFFFFF;
+          font-size: 6vh;
+          text-decoration: none;
+        }
+
+        p {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-desktop {
+        display: none;
+      }
+
+      .menu-mobile {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3px;
+        width: 16px;
       }
     }
   }

@@ -22,6 +22,10 @@ export const HomeContainer = styled.div`
     background-size: cover;
     z-index: 1;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      min-height: initial;
+    }
   }
 
   #home::before {
@@ -36,12 +40,13 @@ export const HomeContainer = styled.div`
     z-index: -1;
   }
 
-  .wrapper {
+  .home-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 1120px;
+    margin: 0 16px;
 
     .main-title {
       font-family: "Oswald";
@@ -52,17 +57,28 @@ export const HomeContainer = styled.div`
       border: 1px solid #8F7F7F;
       backdrop-filter: blur(20px);
       border-radius: 12px;
-      width: 50%;
+      margin: 0 16px;
 
       h2 {
         font-size: 48px;
         margin-bottom: 8px;
         line-height: 62px;
+        white-space: nowrap;
+
+        @media (max-width: 540px) {
+          font-size: 24px;
+          margin-bottom: 0;
+          line-height: normal;
+        }
       }
   
       p {
         font-size: 24px;
         margin-bottom: 16px;
+
+        @media (max-width: 540px) {
+          font-size: 16px;
+        }
       }
 
       button {
@@ -72,6 +88,8 @@ export const HomeContainer = styled.div`
         color: #FFB902;
         font-weight: bold;
         margin-right: 8px;
+        outline: none;
+        border: none;
       }
     }
 
@@ -79,7 +97,11 @@ export const HomeContainer = styled.div`
       position: relative;
 
       img {
-        max-width: 600px;
+        max-width: 540px;
+
+        @media (max-width: 540px) {
+          max-width: 400px;
+        }
       }
 
       .ellipse {
@@ -94,6 +116,24 @@ export const HomeContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 900px) {
+    .home-wrapper {
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 0 40px;
+    }
+    .main-image {
+      order: 1;
+
+      img {
+        max-height: 460px;
+      }
+    }
+    .main-title {
+      order: 2;
+    }
+  }
 `
 
 export const CharactersSection = styled.div`
@@ -103,7 +143,27 @@ export const CharactersSection = styled.div`
   justify-content: center;
   background: linear-gradient(180deg, #000000 0%, #09090B 100%);
   width: 100%;
-  padding-bottom: 120px;
+  padding-bottom: 40px;
+
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    padding: 0 64px;
+  }
+
+  .characters-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 16px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
 
   .character-main-image {
     position: relative;
@@ -112,11 +172,17 @@ export const CharactersSection = styled.div`
     z-index: 1;
 
     img {
+      width: 100%;
+      height: 100%;
       max-width: 480px;
       max-height: 480px;
       object-fit: cover;
     }
 
+    @media (max-width: 900px) {
+      margin: 0;
+      padding-top: 40px;
+    }
   }
 
   .character-main-image::before {
@@ -146,6 +212,17 @@ export const CharactersSection = styled.div`
       font-size: 18px;
       line-height: 27px;
     }
+
+    @media (max-width: 600px) {
+      h3 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: normal;
+      }
+    }
   }
 `
 
@@ -157,11 +234,17 @@ export const DocumentationSection = styled.div`
   background-color: #000000;
   padding: 120px 0;
 
-  .wrapper {
+  @media (max-width: 600px) {
+    padding: 60px 0;
+  }
+
+  .documentation-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    max-width: 1120px;
+    margin: 0 16px;
 
     h2 {
       font-family: 'Roboto Condensed';
@@ -198,6 +281,21 @@ export const DocumentationSection = styled.div`
         text-transform: uppercase;
       }
     }
+    @media (max-width: 600px) {
+      .url {
+        padding: 8px 16px;
+      }
+      h2 {
+        font-size: 8vw;
+      }
+  
+      h3 {
+        font-size: 6vw;
+      }
+  
+      p {
+        font-size: 4vw;
+      }
+    }
   }
-
 `

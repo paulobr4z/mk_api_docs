@@ -15,6 +15,12 @@ export const FooterContainer = styled.div`
     width: 100%;
     max-width: 1120px;
 
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
     a {
       color: #ffffff;
       text-decoration: none;

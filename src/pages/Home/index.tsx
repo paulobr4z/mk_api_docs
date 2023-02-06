@@ -32,7 +32,7 @@ export function Home() {
     <HomeContainer>
       <Header />
       <section id="home">
-        <div className="wrapper">
+        <div className="home-wrapper">
           <div className="main-title">
             <h2>Welcome to mk API</h2>
             <p>Choose Your Fighter</p>
@@ -56,7 +56,7 @@ export function Home() {
         </div>
       </section>
       <CharactersSection>
-        <div className="wrapper">
+        <div className="characters-wrapper">
           <div className="character-main-image">
               <img src={selected?.image || liu} alt="liu kang" />
           </div>
@@ -67,13 +67,15 @@ export function Home() {
             </p>
           </div>
         </div>
-        <Carousel 
-          data={charactersMK11}
-          selectedCharacter={(char:ICharacter) => selectedCharacter(char)}
-        />
+        <div className="carousel-container">
+          <Carousel 
+            data={charactersMK11}
+            selectedCharacter={(char:ICharacter) => selectedCharacter(char)}
+          />
+        </div>
       </CharactersSection>
       <DocumentationSection id="documentation">
-        <div className="wrapper">
+        <div className="documentation-wrapper">
           <h2>
             Documentation
           </h2>

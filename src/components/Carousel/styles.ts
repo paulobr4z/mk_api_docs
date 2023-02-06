@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 198px;
   max-width: 1120px;
   
   .prev {
