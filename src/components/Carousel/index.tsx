@@ -15,29 +15,26 @@ export function Carousel({
   selectedCharacter
 }: ICarousel) {
   const ref = useRef<HTMLDivElement>(null);
+  const refWrapper = useRef<HTMLDivElement>(null);
   const [startingPoint, setStartingPoint] = useState(0);
-  const [selectedChar, setSelectedChar] = useState<ICharacter>();
+  const [step, setStep] = useState(0);
+
+  console.log(step,Math.abs(startingPoint), refWrapper.current!?.offsetWidth * step);
 
   function handleCharSelected(char: ICharacter) {
-    setSelectedChar(char);
     selectedCharacter(char);
   }
 
-  function moveToinitialPoint() {
+  function moveToLeft() {    
     if (startingPoint < 0) {
-      setStartingPoint(startingPoint + ((180 * 6) + 48));
-    }
-    if(startingPoint == -188) {
-      setStartingPoint(0);
+      setStartingPoint(Math.abs(188 * Math.floor(refWrapper.current!?.offsetWidth / 180)) + startingPoint);
     }
   }
 
-  function moveToright() {
-    if (Math.abs(startingPoint) >= 5828) return;
-    if (Math.abs(startingPoint) < 5000) {
-      setStartingPoint(startingPoint - ((180 * 6) + 48));
-    } else {
-      setStartingPoint(startingPoint - 188);
+  function moveToRight() {
+    setStep(Math.floor(ref.current!?.offsetWidth / refWrapper.current!?.offsetWidth))
+    if (Math.abs(startingPoint) < refWrapper.current!?.offsetWidth * step) {      
+      setStartingPoint(-Math.abs(188 * Math.floor(refWrapper.current!?.offsetWidth / 180)) + startingPoint);
     }
   }
 
@@ -45,11 +42,11 @@ export function Carousel({
     <CarouselContainer>
       <a
         className="prev"
-        onClick={moveToinitialPoint}
+        onClick={moveToLeft}
       >
         <img src={prev} alt="prev" />
       </a>
-      <div className="wrapper">
+      <div className="wrapper" ref={refWrapper}>
         <div 
           className="swiper"
           style={{left:startingPoint}}
@@ -69,7 +66,7 @@ export function Carousel({
       </div>
       <a 
         className="next" 
-        onClick={moveToright}
+        onClick={moveToRight}
       >
         <img src={next} alt="next" />
       </a>
